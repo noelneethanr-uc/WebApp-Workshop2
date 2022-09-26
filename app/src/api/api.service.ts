@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { deleteUser, getUser, responseObject } from 'src/common/dto/api.dto';
+import { deleteUser, getUser, insertUserObject, responseObject } from 'src/common/dto/api.dto';
 import { UserEntity } from 'src/common/entity/authuser.entity';
 import { ILike, Like, Repository } from 'typeorm';
 
@@ -41,7 +41,7 @@ export class ApiService {
         return result;
     }
 
-    async createUser(userData: UserEntity) : Promise<responseObject> {
+    async createUser(userData: insertUserObject) : Promise<responseObject> {
         
         console.log(`User data: ${JSON.stringify(userData)}`);
 

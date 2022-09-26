@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
-import { responseObject } from 'src/common/dto/api.dto';
+import { insertUserObject, responseObject } from 'src/common/dto/api.dto';
 import { UserEntity } from 'src/common/entity/authuser.entity';
 import { ApiService } from './api.service';
 
@@ -27,7 +27,7 @@ export class ApiController {
     } 
     
     @Post('create-user')
-    createUser(@Body() userData: UserEntity) : Promise<responseObject> {
+    createUser(@Body() userData: insertUserObject) : Promise<responseObject> {
         return this.apiService.createUser(userData);
     }
 
